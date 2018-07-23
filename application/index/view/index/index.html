@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="/static/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="/static/admin/css/animate.min.css" rel="stylesheet">
+    <link href="/static/admin/css/style.min.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>snake</h1>
+        <h3 class="font-bold">访问后台,请在地址后面加上 /admin</h3>
+
+        <div class="error-desc">
+
+            <br/> 默认用户名 ：admin，密码 ： admin
+			<br/>
+			<br/>  author : NickBai , homepage : http://baiyf.com , email : 1902822973@qq.com
+        </div>
+    </div>
+    <div>
+        <ul id="app">
+            <li v-for="(index,arr) in arr1">
+                {{arr.name}}----{{arr.age}}
+                <ul>
+                    <li v-for="(index1,ar) in arr2[index]">
+                        {{ar.name}}----{{ar.sex}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="/static/admin/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/admin/js/bootstrap.min.js?v=3.3.6"></script>
+</body>
+<script type="text/javascript" src="/static/admin/js/layui/layui.js"></script>
+<script src="/static/admin/js/vue/vue.js"></script>
+<script>
+    layui.use(['layer','jquery','upload','laydate'],function () {
+        let layer=layui.layer,$=layui.jquery;
+        let app=new Vue({
+            el:'#app',
+            data:{
+               arr1:[{"name":"zhangsan","age":22},{"name":"zhangsan1","age":23},{"name":"zhangsan2","age":24}],
+               arr2:[
+                   [{"name":"zhangsan","sex":1},{"name":"zhangsan1","sex":2},{"name":"zhangsan2","sex":1}],
+                   [{"name":"zhangsan","sex":1},{"name":"zhangsan1","sex":2},{"name":"zhangsan2","sex":1}],
+                   [{"name":"zhangsan","sex":1},{"name":"zhangsan1","sex":2},{"name":"zhangsan2","sex":1}]
+               ],
+            },
+            methods:{
+                showData:function () {
+
+                }
+            },
+            ready:function () {
+                this.showData();
+            }
+        });
+    });
+</script>
+</html>
